@@ -48,8 +48,7 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.game_data (
-    user_id integer NOT NULL,
-    username character varying(22),
+    username character varying(100) NOT NULL,
     games_played integer,
     best_game integer
 );
@@ -58,46 +57,12 @@ CREATE TABLE public.game_data (
 ALTER TABLE public.game_data OWNER TO freecodecamp;
 
 --
--- Name: game_data_player_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
---
-
-CREATE SEQUENCE public.game_data_player_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.game_data_player_id_seq OWNER TO freecodecamp;
-
---
--- Name: game_data_player_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
---
-
-ALTER SEQUENCE public.game_data_player_id_seq OWNED BY public.game_data.user_id;
-
-
---
--- Name: game_data user_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.game_data ALTER COLUMN user_id SET DEFAULT nextval('public.game_data_player_id_seq'::regclass);
-
-
---
 -- Data for Name: game_data; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.game_data VALUES (1, 'Bob', 100, 1);
-
-
---
--- Name: game_data_player_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
---
-
-SELECT pg_catalog.setval('public.game_data_player_id_seq', 1, true);
+INSERT INTO public.game_data VALUES ('user_1669265185825', 2, 717);
+INSERT INTO public.game_data VALUES ('user_1669265185826', 5, 234);
+INSERT INTO public.game_data VALUES ('Alex', 1, 7);
 
 
 --
@@ -105,7 +70,7 @@ SELECT pg_catalog.setval('public.game_data_player_id_seq', 1, true);
 --
 
 ALTER TABLE ONLY public.game_data
-    ADD CONSTRAINT game_data_pkey PRIMARY KEY (user_id);
+    ADD CONSTRAINT game_data_pkey PRIMARY KEY (username);
 
 
 --
@@ -119,5 +84,4 @@ ALTER TABLE ONLY public.game_data
 --
 -- PostgreSQL database dump complete
 --
-
 
