@@ -64,7 +64,7 @@ done
 
 if [[ $GUESS = $SECRET_NUMBER ]]
 then
-echo -e "\nYou guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice Job!"
+echo -e "\nYou guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
 fi
 
 #if first time or new best
